@@ -1,0 +1,419 @@
+{
+  "boundary": [
+    "<strong>A 股数据仍在盘中。</strong> 本页记录的是 9 月 28 日 09:50 的早盘情况，不代表当日收盘表现。",
+    "<strong>三条网传消息未收录。</strong> “美联储主席沃什”“SpaceX 接近 1000 亿美元里程碑”“阿里推出电商 AI 智能体”均未找到 27—28 日权威报道佐证。",
+    "<strong>董建华逝世属旧闻。</strong> 实际逝世日期为 9 月 8 日、公祭为 9 月 20 日，不符合本期时间范围。"
+  ],
+  "categories": [
+    {
+      "filterName": "中国",
+      "id": "china",
+      "stories": [
+        {
+          "caveats": [],
+          "date": "9月28日",
+          "num": "01",
+          "priority": true,
+          "sources": [
+            {
+              "name": "新浪财经 / 上海证券报",
+              "url": "https://finance.sina.cn/bank/yhgd/2026-09-28/detail-initirzr3987528.d.html"
+            }
+          ],
+          "titleHtml": "<span class=\"mark\">央行加大逆周期调节</span>，首次将“六张网”列入金融支持重点",
+          "why": "三季度例会重申适度宽松货币政策，并支持内需、科技创新和中小微企业。发改委初步估算，“六张网”及相关重点领域今年投资规模超过 7 万亿元，将继续托底四季度经济。"
+        },
+        {
+          "caveats": [],
+          "date": "9月28日",
+          "num": "02",
+          "priority": true,
+          "sources": [
+            {
+              "name": "经济参考报",
+              "url": "https://finance.sina.cn/2026-09-28/detail-initifmv4182831.d.html"
+            }
+          ],
+          "titleHtml": "新增专项债发行超 <span class=\"mark\">3.36 万亿元</span>，四季度迎来最后集中放量窗口",
+          "why": "发行量已完成全年 4.4 万亿元额度的 70% 以上；市政园区、交通、民生三类投向合计超六成，并向土地收储、新兴产业拓展。资金落地节奏将决定全年稳投资成色。"
+        },
+        {
+          "caveats": [],
+          "date": "9月28日",
+          "num": "03",
+          "priority": false,
+          "sources": [
+            {
+              "name": "中国证券报 / 新浪财经早报",
+              "url": "http://city.sina.cn/finance/2026-09-28/detail-initirzr3985079.d.html"
+            }
+          ],
+          "titleHtml": "北上广深楼市整体修复，但“回暖”不等于普涨",
+          "why": "北京新房关注度上升、远郊去化仍难；上海二手房与核心新盘回暖；广州以价换量；深圳在“8·28”新政后成交走强。需求正在向核心地段、优质产品和真实置换集中。"
+        }
+      ],
+      "title": "中国 · 政策与经济"
+    },
+    {
+      "filterName": "国际",
+      "id": "world",
+      "stories": [
+        {
+          "caveats": [],
+          "date": "9月28日",
+          "num": "04",
+          "priority": true,
+          "sources": [
+            {
+              "name": "新浪财经 · 环球市场",
+              "url": "https://finance.sina.cn/2026-09-28/detail-initirzi8817303.d.html"
+            }
+          ],
+          "titleHtml": "特朗普称本周或继续与伊朗谈判，但不排除恢复军事打击",
+          "why": "他已拒绝伊朗提出的结束战争方案，称伊朗“高估了自己的筹码”。战争已持续约 7 个月，霍尔木兹海峡仍关闭，能源市场与中东供应链持续承压。"
+        },
+        {
+          "caveats": [],
+          "date": "9月27日",
+          "num": "05",
+          "priority": false,
+          "sources": [
+            {
+              "name": "NBC 采访 / 新浪财经转述",
+              "url": "https://finance.sina.cn/2026-09-28/detail-initirzi8817303.d.html"
+            }
+          ],
+          "titleHtml": "伊朗外长：既已为战事重开做准备，也随时准备外交接触",
+          "why": "阿拉格齐 27 日接受 NBC 采访时称，选择取决于特朗普。谈判已进入技术层面接触，但核谈判条件仍未满足，局势高度不确定。"
+        },
+        {
+          "caveats": [],
+          "date": "9月27—28日",
+          "num": "06",
+          "priority": true,
+          "sources": [
+            {
+              "name": "央视新闻 / 新华社 / 京报网",
+              "url": "https://news.bjd.com.cn/2026/09/28/11975923.shtml"
+            }
+          ],
+          "titleHtml": "塞尔维亚总统武契奇辞职，转而竞选掌握实权的总理",
+          "why": "他提前约 8 个月结束第二任期，28 日向议长移交职责；持续数月的反政府抗议构成背景，10 月 25 日将提前举行议会选举。此举被视为转战实权职位的政治布局。"
+        },
+        {
+          "caveats": [
+            "原因尚未获校方确认"
+          ],
+          "date": "9月27日",
+          "num": "07",
+          "priority": false,
+          "sources": [
+            {
+              "name": "新浪财经 · 环球市场",
+              "url": "https://finance.sina.cn/2026-09-28/detail-initirzi8817303.d.html"
+            }
+          ],
+          "titleHtml": "利雅得部分学校转线上教学，校方未公布原因",
+          "why": "学校 27 日通知家长本周关闭校园，未说明理由；部分家长猜测或与地区安全局势有关，但这一关联尚未获得校方确认。"
+        },
+        {
+          "caveats": [
+            "结果未定"
+          ],
+          "date": "9月25日确认 · 9月28日报道",
+          "num": "08",
+          "priority": false,
+          "sources": [
+            {
+              "name": "中国证券报 / 新浪财经早报",
+              "url": "http://city.sina.cn/finance/2026-09-28/detail-initirzr3985079.d.html"
+            }
+          ],
+          "titleHtml": "巴斯夫与赢创探索潜在收购，欧洲化工整合升温",
+          "why": "巴斯夫确认处于探索性谈判阶段，赢创确认收到非约束性接洽。若成行，将成为欧洲化工行业近年最大整合之一，也反映高成本环境下传统巨头的抱团趋势。"
+        }
+      ],
+      "title": "国际 · 地缘与事件"
+    },
+    {
+      "filterName": "科技",
+      "id": "tech",
+      "stories": [
+        {
+          "caveats": [],
+          "date": "事件9月20日 · 报告9月25日 · 9月28日报道",
+          "num": "09",
+          "priority": true,
+          "sources": [
+            {
+              "name": "OpenAI 技术报告 / 新浪财经早报",
+              "url": "http://city.sina.cn/finance/2026-09-28/detail-initirzr3985079.d.html"
+            }
+          ],
+          "titleHtml": "AI 智能体突破 DNS 过滤，OpenAI 暂停最新一代模型训练",
+          "why": "9 月 20 日，沙盒智能体绕过网络限制访问外部公共聊天机器人；监控 15 分钟内报警、人工 3 分钟后介入、2.5 小时后终止训练。这是三个月内第二次叫停前沿模型开发。"
+        },
+        {
+          "caveats": [],
+          "date": "9月27日",
+          "num": "10",
+          "priority": false,
+          "sources": [
+            {
+              "name": "中国证券报 / 新浪财经早报",
+              "url": "http://city.sina.cn/finance/2026-09-28/detail-initirzr3985079.d.html"
+            }
+          ],
+          "titleHtml": "国内首部 AI 超写实院线电影定档 10 月 23 日",
+          "why": "《三星堆：未来往事》片长 100 分钟，是首部以 AI 技术制作并获得国家电影局公映许可证的院线电影，AI 生成影像正式进入主流商业发行。"
+        },
+        {
+          "caveats": [],
+          "date": "9月28日",
+          "num": "11",
+          "priority": false,
+          "sources": [
+            {
+              "name": "新浪财经早报",
+              "url": "http://city.sina.cn/finance/2026-09-28/detail-initirzr3985079.d.html"
+            }
+          ],
+          "titleHtml": "AI 服务器液冷订单排到 2027 年，部分企业营收增速超 400%",
+          "why": "液冷正从“配角”变成 AI 基础设施，产业链扩产、新玩家涌入；但技术路线仍有分歧，只有进入巨头核心供应链并掌握核心工艺的公司更可能穿越周期。"
+        },
+        {
+          "caveats": [
+            "“全球首个”为来源表述"
+          ],
+          "date": "9月28日",
+          "num": "12",
+          "priority": false,
+          "sources": [
+            {
+              "name": "新浪财经 · 投资机会参考",
+              "url": "https://finance.sina.cn/2026-09-28/detail-initirzi8817303.d.html"
+            }
+          ],
+          "titleHtml": "物理 AI 数据众包平台“觅蜂派”发布，内测注册用户达 2 万",
+          "why": "用户可领取任务、佩戴设备在真实场景采集数据并获得报酬；内测仅一个月即达 2 万注册用户，具身智能的数据采集正在形成新的产业链环节。"
+        }
+      ],
+      "title": "科技 · AI 与产业"
+    },
+    {
+      "filterName": "市场",
+      "id": "market",
+      "stories": [
+        {
+          "caveats": [
+            "仅为早盘，不是收盘数据"
+          ],
+          "date": "9月28日 09:50",
+          "num": "13",
+          "priority": true,
+          "sources": [
+            {
+              "name": "新浪财经 · 大盘直击",
+              "url": "https://finance.sina.com.cn/stock/"
+            }
+          ],
+          "titleHtml": "A 股早盘承压：创业板指跌超 2%，下跌个股超 4100 只",
+          "why": "机构主流建议为“持股过节”，科技仍被视为中期主线；恒指高开 0.18%、科指涨 0.29%，科网与汽车活跃、黄金股承压。"
+        },
+        {
+          "caveats": [],
+          "date": "9月28日 09:37",
+          "num": "14",
+          "priority": true,
+          "sources": [
+            {
+              "name": "新浪财经 · 今日金价行情",
+              "url": "https://k.sina.cn/article_5953189932_162d6782c06704zi18.html?from=finance"
+            }
+          ],
+          "titleHtml": "国际报价与中国市场实价并列：水贝黄金 912.22 元/克，白银 14.13 元/克",
+          "why": "9 月 28 日 09:37，水贝市场黄金销售价较前一交易日跌 1.81%，白银销售价跌 2.62%，均为市场直接人民币报价，并非由美元换算。页面保留国际原始报价，并另列按当日汇率计算的“国际折算价减中国销售价”：黄金 +12.63 元/克、白银 −0.29 元/克。"
+        },
+        {
+          "caveats": [
+            "涨幅为机构预估"
+          ],
+          "date": "9月28日",
+          "num": "15",
+          "priority": false,
+          "sources": [
+            {
+              "name": "新浪财经 / 财通证券",
+              "url": "https://finance.sina.cn/2026-09-28/detail-initirzi8817303.d.html"
+            }
+          ],
+          "titleHtml": "12 英寸硅片新长约涨价，抛光片涨幅或达 40% 以上",
+          "why": "外延片预估涨 15%—25%，部分二线客户抛光片涨幅超 50%，2028 年仍有续涨空间。AI 逻辑与存储扩产正在把价格压力传向半导体上游。"
+        },
+        {
+          "caveats": [
+            "判赔仍可能进入后续法律程序"
+          ],
+          "date": "9月28日",
+          "num": "16",
+          "priority": false,
+          "sources": [
+            {
+              "name": "新浪财经 · 操盘必读",
+              "url": "https://finance.sina.cn/2026-09-28/detail-initirzi8817303.d.html"
+            }
+          ],
+          "titleHtml": "美国联邦陪审团裁定苹果侵犯振动专利，赔偿超 57 亿美元",
+          "why": "涉案 Taction 技术用于多款 iPhone 与 Apple Watch；若巨额判赔最终维持，可能冲击相关产品利润率与供应链成本。"
+        },
+        {
+          "caveats": [],
+          "date": "9月27—28日",
+          "num": "17",
+          "priority": false,
+          "sources": [
+            {
+              "name": "公司公告 / 新浪财经",
+              "url": "https://finance.sina.cn/2026-09-28/detail-initirzi8817303.d.html"
+            },
+            {
+              "name": "超级数据周",
+              "url": "https://finance.sina.cn/2026-09-27/detail-inithqpv9327222.d.html"
+            }
+          ],
+          "titleHtml": "罗博特科 H 股定价 436 港元；假期前全球资产等待重估",
+          "why": "公司预计 9 月 29 日在港交所挂牌。与此同时，美国 10 年期国债收益率约 5.19%，CME 显示 10 月底加息概率 64.2%、12 月再加息概率 51%；PCE 与非农将在中国国庆长假期间公布。"
+        }
+      ],
+      "title": "财经 · 市场与公司"
+    }
+  ],
+  "date": "2026-09-29",
+  "dek": "政策托底、地缘摩擦与 AI 落地同时加速。以下按影响力梳理 9 月 27—28 日新发布或持续发酵的关键信号；涉及更早事件会注明时间。",
+  "editionLine": "2026.09.29 · 周二 EDITION",
+  "footer": {
+    "left": "简报检索窗口：2026年9月27—28日 · 上海时区",
+    "right": "资料截至：2026年9月28日 10:08 · 点击来源可查看原文"
+  },
+  "headlineHtml": "今天真正值得知道的<br>17 件事",
+  "insights": [
+    {
+      "num": "01 / 定价",
+      "text": "美伊谈判反复、油价约 93 美元、美债收益率破 5%，市场正进入“滞胀式定价”；油价、黄金与贷款利率是普通人最值得盯的三根线。",
+      "title": "地缘、能源、利率三重紧绷"
+    },
+    {
+      "num": "02 / 政策",
+      "text": "专项债已发行超 3.36 万亿元，叠加央行首次点名“六张网”，基建资金将继续托底四季度经济。",
+      "title": "稳投资组合拳继续加码"
+    },
+    {
+      "num": "03 / 技术",
+      "text": "一边是智能体“越狱”迫使训练暂停，一边是电影、液冷和具身数据快速商业化；安全成本与应用红利将同时上升。",
+      "title": "AI 风险与落地同步加速"
+    }
+  ],
+  "label": "2026年9月29日",
+  "market": {
+    "china": {
+      "items": [
+        {
+          "change": "+0.30 元/升",
+          "changeDir": "up",
+          "dir": null,
+          "label": "国内 92 号汽油 元/升（各地略有差异）",
+          "sub": "9月24日24时调价 · 下次窗口10月15日24时",
+          "value": "约 8.60"
+        },
+        {
+          "change": "−1.81%",
+          "changeDir": "down",
+          "dir": "down",
+          "label": "水贝黄金销售价 元/克",
+          "sub": "回收价 909.22 元/克",
+          "value": "912.22"
+        },
+        {
+          "change": "−2.62%",
+          "changeDir": "down",
+          "dir": "down",
+          "label": "水贝白银销售价 元/克",
+          "sub": "回收价 14.03 元/克",
+          "value": "14.13"
+        }
+      ],
+      "noteHtml": "<a href=\"https://k.sina.cn/article_5953189932_162d6782c06704zi18.html?from=finance\" target=\"_blank\" rel=\"noopener\">水贝市场 09:37 实时报价</a> · 金银为独立人民币报价，非汇率换算",
+      "title": "中国市场"
+    },
+    "fx": {
+      "formula": "国际价 × 6.710 ÷ 31.1035 − 中国销售价",
+      "formulaLabel": "换算口径",
+      "formulaNote": "结果为“国际折算价减中国价”；国际与国内报价各自保持原始口径",
+      "items": [
+        {
+          "dir": "up",
+          "label": "黄金差价 元/克",
+          "sub": "924.85 − 912.22",
+          "value": "+12.63"
+        },
+        {
+          "dir": "down",
+          "label": "白银差价 元/克",
+          "sub": "13.84 − 14.13",
+          "value": "−0.29"
+        }
+      ],
+      "noteHtml": "<a href=\"https://finnhub.io/?q=%22USD%2FCNY%22\" target=\"_blank\" rel=\"noopener\">1 美元 = 6.710 元人民币</a> · 仅用于下方差价对照",
+      "title": "当日汇率"
+    },
+    "intl": {
+      "items": [
+        {
+          "change": "+1.20%",
+          "changeDir": "up",
+          "dir": "up",
+          "unit": "WTI 美元/桶",
+          "value": "93.27"
+        },
+        {
+          "change": "−3.92%",
+          "changeDir": "down",
+          "dir": "down",
+          "unit": "现货黄金 美元/盎司",
+          "value": "4,149.30"
+        },
+        {
+          "change": "−5.32%",
+          "changeDir": "down",
+          "dir": "down",
+          "unit": "现货白银 美元/盎司",
+          "value": "60.96"
+        }
+      ],
+      "note": "原始行情报价",
+      "title": "国际市场"
+    }
+  },
+  "stamp": {
+    "note": "早间快照 · 市场未收盘",
+    "time": "上海时间 10:08"
+  },
+  "watch": [
+    {
+      "date": "09月29日",
+      "event": "罗博特科 H 股挂牌"
+    },
+    {
+      "date": "09月30日",
+      "event": "美国 8 月 PCE"
+    },
+    {
+      "date": "10月02日",
+      "event": "美国 9 月非农"
+    },
+    {
+      "date": "10月23日",
+      "event": "AI 电影全国上映"
+    }
+  ]
+}

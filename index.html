@@ -1,0 +1,34 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <meta name="color-scheme" content="light dark" />
+  <meta name="theme-color" content="#f1f3f2" media="(prefers-color-scheme: light)" />
+  <meta name="theme-color" content="#111513" media="(prefers-color-scheme: dark)" />
+  <link rel="icon" href="data:," />
+  <title>今日信息差</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@400;500;600;700;800&family=Noto+Serif+SC:wght@600;700;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/css/style.css" />
+</head>
+<body>
+  <div class="page">
+    <nav class="archive-bar" aria-label="历史简报">
+      <div class="archive-copy">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M6 3v3M18 3v3M4 9h16M5 5h14a1 1 0 0 1 1 1v13a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1V6a1 1 0 0 1 1-1Z"/></svg>
+        <div><strong>历史简报</strong><span id="archiveCount">最近 30 天</span></div>
+      </div>
+      <label class="archive-select-wrap">
+        <span class="sr-only">选择简报日期</span>
+        <select class="archive-select" id="archiveSelect" aria-label="选择简报日期"></select>
+      </label>
+    </nav>
+
+    <div id="editions"></div>
+  </div>
+
+  <script src="assets/js/app.js"></script>
+</body>
+</html>

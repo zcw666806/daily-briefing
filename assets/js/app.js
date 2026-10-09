@@ -44,12 +44,25 @@
       '<span class="pulse-detail"><span>' + esc(t.formula) + '</span>' +
       (t.formulaNote ? '<small>' + esc(t.formulaNote) + '</small>' : '') + '</span></div>';
     var items = t.items.map(function (it) {
-      return '<div class="pulse"><b class="' + dirClass(it.dir) + '">' + esc(it.value) + '</b>' +
+      return '<div class="pulse"><b>' + esc(spreadText(it.value)) + '</b>' +
         '<span class="pulse-detail"><span>' + esc(it.label) + '</span>' +
         (it.sub ? '<small>' + esc(it.sub) + '</small>' : '') + '</span></div>';
     }).join('');
     return '<div class="tape-kicker"><strong>' + esc(t.title) + '</strong><span>' + (t.noteHtml || '') + '</span></div>' +
       '<div class="tape basis-tape">' + formula + items + '</div>';
+  }
+
+  // 换算差价是国内外静态价差（国际折算价 − 国内报价），不是涨跌：
+  // 不用红绿涨跌色，把 "-162.78" 翻译成人话
+  function spreadText(v) {
+    if (v == null) return '—';
+    var s = String(v).trim();
+    if (s === '—' || s === '-' || s === '') return '—';
+    var num = parseFloat(s.replace(/−/g, '-').replace(/,/g, ''));
+    if (isNaN(num)) return s;
+    if (num === 0) return '基本持平';
+    var abs = Math.abs(num).toFixed(2);
+    return (num < 0 ? '国内贵 ' : '国内便宜 ') + abs;
   }
 
   function renderMarket(m) {

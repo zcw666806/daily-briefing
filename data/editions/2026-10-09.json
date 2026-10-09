@@ -340,8 +340,8 @@
     "china": {
       "items": [
         {
-          "change": null,
-          "changeDir": null,
+          "change": "0.00%",
+          "changeDir": "",
           "dir": null,
           "label": "兰州 92 号汽油 元/升",
           "sub": "发改委9月24日24时调价（调控后实际+395元/吨，约+0.30元/升） · 下窗口10月15日24时",

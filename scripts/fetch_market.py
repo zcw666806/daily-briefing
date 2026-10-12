@@ -7,18 +7,15 @@
   - WTI / 黄金 / 白银 .. Yahoo Finance chart API（CL=F、GC=F、SI=F），
                        直接给出 regularMarketPrice（现价）与 chartPreviousClose（昨收），
                        涨跌幅 = (现价 - 昨收) / 昨收。
-  - 国内金银 .......... 上金所官网 https://www.sge.com.cn/sjzx/mrhq_data?date=YYYY-MM-DD
-                       Au99.99 收盘价（元/克）、Ag99.99 收盘价（元/千克÷1000→元/克），
-                       附带官方涨跌幅；交易日每日更新，周末/节假日返回空表。
 
 准确率铁律（2026-10-12 用户立规：不准的东西不如不做）：
-  - 上金所无数据（空表/接口异常）时，从当日往前最多回溯 7 天取最近交易日；
-    仍取不到 → 国内金银 value/change 全部填 "—"，换算差价同步 "—"；
+  - 国内金银（水贝口径）由 worker 每天上午搜索当日可验证报价后手工传入；
+    无当日新鲜报价 → value/change 显示"—"，换算差价同步"—"；
   - 禁止沿用旧报价、禁止把"没有新数据"写成 0.00%。
   - 92 号汽油：发改委约 10 个工作日一调，沿用现价是正常属性，由 worker 按发改委通知手工维护，脚本不动。
 
 抓不到的东西（脚本不动，留给你手动填）：
-  - 中国区：92 号汽油（发改委调价口径）；
+  - 中国区：水贝金银当日报价、92 号汽油；
   - 所有新闻条目、洞察、待关注 —— 需要编辑判断，爬虫做不了。
 
 用法：
@@ -26,12 +23,10 @@
     python3 scripts/new_day.py 2026-09-29 --from 2026-09-28
     python3 scripts/fetch_market.py 2026-09-29
 
-    # 国内金银默认走上金所自动抓取；如需手工覆盖（仅调试）：
-    python3 scripts/fetch_market.py 2026-09-29 --china-gold 902.90 --china-silver 14.82
+    # worker 搜到当日水贝报价后传入，自动算出"换算差价"栏；不传则按熔断显示"—"
+    python3 scripts/fetch_market.py 2026-09-29 --china-gold 1061.00 --china-silver 13.84
 """
 import argparse
-import datetime as dt
-import html
 import json
 import re
 import sys
@@ -62,52 +57,6 @@ def fetch_yahoo(symbol: str) -> tuple[float, float]:
     return price, (price - prev) / prev * 100.0
 
 
-def fetch_sge_day(day: str):
-    """取上金所某日行情。返回 (au9999收盘元/克, au涨跌幅%, ag9999收盘元/克, ag涨跌幅%)，
-    空表/异常返回 None。列顺序：合约/开盘/收盘/最高/最低/涨跌/涨跌幅。"""
-    url = f"https://www.sge.com.cn/sjzx/mrhq_data?date={day}"
-    req = urllib.request.Request(url, headers={"User-Agent": "Mozilla/5.0"})
-    try:
-        with urllib.request.urlopen(req, timeout=25) as resp:
-            raw = resp.read().decode("utf-8", errors="ignore")
-    except Exception:
-        return None
-    out = {}
-    for comment in re.findall(r"<!--(.*?)-->", raw, re.S):
-        if "Au99.99" not in comment:
-            continue
-        for row in re.findall(r"<tr[^>]*>(.*?)</tr>", comment, re.S):
-            cells = [html.unescape(re.sub(r"<[^>]+>", "", c)).strip()
-                     for c in re.findall(r"<t[dh][^>]*>(.*?)</t[dh]>", row, re.S)]
-            if cells and cells[0] in ("Au99.99", "Ag99.99") and len(cells) >= 7:
-                try:
-                    close = float(cells[2])
-                except ValueError:
-                    continue
-                try:
-                    chg = float(cells[6].replace("%", ""))
-                except ValueError:
-                    chg = None  # 涨跌幅缺失时只取价格
-                out[cells[0]] = (close, chg)
-        break
-    if "Au99.99" not in out or "Ag99.99" not in out:
-        return None
-    au_close, au_chg = out["Au99.99"]
-    ag_close_kg, ag_chg = out["Ag99.99"]
-    return au_close, au_chg, ag_close_kg / 1000.0, ag_chg
-
-
-def fetch_sge(day: str):
-    """从 day 往前最多回溯 7 天取最近交易日。返回 (au, au_chg, ag, ag_chg, 实际报价日期)，取不到返回 None。"""
-    d = dt.date.fromisoformat(day)
-    for i in range(8):
-        q = (d - dt.timedelta(days=i)).isoformat()
-        r = fetch_sge_day(q)
-        if r:
-            return (*r, q)
-    return None
-
-
 def fmt_price(v: float) -> str:
     return f"{v:,.2f}"
 
@@ -124,8 +73,8 @@ def direction(c: float) -> str:
 def main() -> None:
     ap = argparse.ArgumentParser(description="抓取国际行情并更新当日 JSON")
     ap.add_argument("day", help="日期，格式 YYYY-MM-DD（需已存在 data/editions/<日期>.json）")
-    ap.add_argument("--china-gold", type=float, default=None, help="手工覆盖：国内黄金 元/克（默认走上金所自动抓取）")
-    ap.add_argument("--china-silver", type=float, default=None, help="手工覆盖：国内白银 元/克（默认走上金所自动抓取）")
+    ap.add_argument("--china-gold", type=float, default=None, help="当日水贝首饰金挂牌价 元/克（无当日可验证报价时不传，按熔断显示—）")
+    ap.add_argument("--china-silver", type=float, default=None, help="当日水贝白银批发价 元/克（无当日可验证报价时不传，按熔断显示—）")
     args = ap.parse_args()
 
     path = ROOT / "data" / "editions" / f"{args.day}.json"
@@ -158,56 +107,27 @@ def main() -> None:
     )
     fx_block["formula"] = f"国际价 × {fx:.3f} ÷ {TROY_OZ} − 中国销售价"
 
-    # ---- 4. 国内金银（上金所自动抓取；--china-* 仅手工覆盖/调试） ----
-    if args.china_gold is not None and args.china_silver is not None:
-        au, ag = args.china_gold, args.china_silver
-        au_chg = ag_chg = None
-        qdate = "手工覆盖"
-        print(f"国内金银使用手工覆盖值：Au {au} / Ag {ag}")
-    else:
-        sge = fetch_sge(args.day)
-        if sge is None:
-            # 熔断：无数据 → 显示"—"，禁止沿用旧价
-            print("上金所 7 天内无数据，国内金银按熔断显示 —")
-            au = ag = None
-        else:
-            au, au_chg, ag, ag_chg, qdate = sge
-            print(f"上金所 {qdate}：Au99.99 收盘 {au:.2f}（{fmt_chg(au_chg)}）  Ag99.99 {ag:.2f}（{fmt_chg(ag_chg)}）")
-
+    # ---- 4. 国内金银（worker 搜到当日水贝报价后经 --china-* 传入；不传则熔断显示"—"） ----
     china = edition["market"]["china"]["items"]
-    if au is None:
+    fx_items = edition["market"]["fx"]["items"]
+    if args.china_gold is None or args.china_silver is None:
+        print("未传入当日水贝报价，按熔断显示 —（禁止沿用旧价）")
         for idx in (1, 2):
             china[idx]["value"] = "—"
             china[idx]["change"] = ""
             china[idx]["changeDir"] = ""
             china[idx]["dir"] = None
-            china[idx]["sub"] = "暂无可验证报价"
-    else:
-        china[1].update({
-            "label": "上金所 Au99.99 元/克",
-            "value": f"{au:.2f}",
-            "change": fmt_chg(au_chg) if au_chg is not None else "",
-            "changeDir": direction(au_chg) if au_chg is not None else "",
-            "dir": direction(au_chg) if au_chg is not None else None,
-            "sub": f"上金所{qdate[5:].replace('-', '月')}日收盘价" if qdate != "手工覆盖" else "手工覆盖值",
-        })
-        china[2].update({
-            "label": "上金所 Ag99.99 元/克",
-            "value": f"{ag:.2f}",
-            "change": fmt_chg(ag_chg) if ag_chg is not None else "",
-            "changeDir": direction(ag_chg) if ag_chg is not None else "",
-            "dir": direction(ag_chg) if ag_chg is not None else None,
-            "sub": f"上金所{qdate[5:].replace('-', '月')}日收盘价" if qdate != "手工覆盖" else "手工覆盖值",
-        })
-
-    # ---- 5. 换算差价 ----
-    fx_items = edition["market"]["fx"]["items"]
-    if au is None:
         for item in fx_items:
             item["value"] = "—"
             item["dir"] = None
             item["sub"] = "国内暂无可验证报价"
     else:
+        au, ag = args.china_gold, args.china_silver
+        # 涨跌幅按昨日 JSON 的真实数字计算（规则见任务指令）
+        for idx, price in ((1, au), (2, ag)):
+            china[idx]["value"] = f"{price:.2f}"
+            china[idx]["label"] = ("水贝首饰金挂牌价 元/克" if idx == 1
+                                   else "水贝白银批发价 元/克")
         for item, usd_price, cn_price in zip(fx_items, [gold, silver], [au, ag]):
             converted = usd_price * fx / TROY_OZ
             basis = converted - cn_price

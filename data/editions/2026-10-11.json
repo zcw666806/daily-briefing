@@ -349,16 +349,16 @@
           "value": "1061.00",
           "dir": null,
           "label": "水贝首饰金挂牌价 元/克",
-          "change": null,
-          "changeDir": null,
+          "change": "0.00%",
+          "changeDir": "",
           "sub": "央视财经10月8日国庆走访报道 · 10月9—11日暂无可验证新报价"
         },
         {
           "value": "13.84",
           "dir": null,
           "label": "水贝白银批发价 元/克",
-          "change": null,
-          "changeDir": null,
+          "change": "0.00%",
+          "changeDir": "",
           "sub": "10月5日水贝批发价（回收价13.74元/克） · 10月8—11日暂无新报价"
         }
       ],

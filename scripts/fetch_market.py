@@ -9,8 +9,10 @@
                        涨跌幅 = (现价 - 昨收) / 昨收。
 
 准确率铁律（2026-10-12 用户立规：不准的东西不如不做）：
-  - 国内金银（水贝口径）由 worker 每天上午搜索当日可验证报价后手工传入；
-    无当日新鲜报价 → value/change 显示"—"，换算差价同步"—"；
+  - 国内金银（水贝口径）优先从深圳本地宝"水贝今日金价（每日更新）"
+    （https://sz.bendibao.com/news/2024315/970347.htm，固定地址、静态表格、每日更新）
+    自动抓取；仅当表头日期"水贝金价（M月D日"与当天一致时采用，否则视为无数据；
+  - 无当日数据且未手工传入 → value/change 显示"—"，换算差价同步"—"；
   - 禁止沿用旧报价、禁止把"没有新数据"写成 0.00%。
   - 92 号汽油：发改委约 10 个工作日一调，沿用现价是正常属性，由 worker 按发改委通知手工维护，脚本不动。
 
@@ -27,6 +29,7 @@
     python3 scripts/fetch_market.py 2026-09-29 --china-gold 1061.00 --china-silver 13.84
 """
 import argparse
+import html
 import json
 import re
 import sys
@@ -41,6 +44,46 @@ def get_json(url: str):
     req = urllib.request.Request(url, headers={"User-Agent": "Mozilla/5.0"})
     with urllib.request.urlopen(req, timeout=25) as resp:
         return json.load(resp)
+
+
+def get_html(url: str) -> str:
+    req = urllib.request.Request(url, headers={
+        "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/126.0 Safari/537.36",
+        "Accept-Language": "zh-CN,zh;q=0.9",
+    })
+    with urllib.request.urlopen(req, timeout=25) as resp:
+        return resp.read().decode("utf-8", errors="ignore")
+
+
+BENDIBAO_URL = "https://sz.bendibao.com/news/2024315/970347.htm"  # 深圳本地宝"水贝今日金价（每日更新）"，固定地址每日更新
+
+
+def fetch_bendibao():
+    """抓深圳本地宝水贝金价表。返回 (MM-DD日期, 首饰金元/克, 白银元/克)，失败返回 None。
+    表格为静态 HTML；日期取自表头"水贝金价（M月D日"。"""
+    try:
+        raw = get_html(BENDIBAO_URL)
+    except Exception:
+        return None
+    m = re.search(r"水贝金价（(\d{1,2})月(\d{1,2})", raw)
+    if not m:
+        return None
+    date_str = f"{int(m.group(1)):02d}-{int(m.group(2)):02d}"
+    out = {}
+    for tb in re.findall(r"<table[^>]*>(.*?)</table>", raw, re.S):
+        for row in re.findall(r"<tr[^>]*>(.*?)</tr>", tb, re.S):
+            cells = [html.unescape(re.sub(r"<[^>]+>", "", c)).strip()
+                     for c in re.findall(r"<t[dh][^>]*>(.*?)</t[dh]>", row, re.S)]
+            cells = [c for c in cells if c]
+            if len(cells) >= 2 and cells[0] in ("首饰金", "白银"):
+                mm = re.search(r"([\d.]+)\s*元/克", cells[1])
+                if mm:
+                    out[cells[0]] = float(mm.group(1))
+        if "首饰金" in out and "白银" in out:
+            break
+    if "首饰金" not in out or "白银" not in out:
+        return None
+    return date_str, out["首饰金"], out["白银"]
 
 
 def fetch_fx() -> tuple[float, str]:
@@ -107,32 +150,45 @@ def main() -> None:
     )
     fx_block["formula"] = f"国际价 × {fx:.3f} ÷ {TROY_OZ} − 中国销售价"
 
-    # ---- 4. 国内金银（worker 搜到当日水贝报价后经 --china-* 传入；不传则熔断显示"—"） ----
+    # ---- 4. 国内金银（优先级：深圳本地宝每日更新 > --china-* 手工传入 > 熔断"—"） ----
     china = edition["market"]["china"]["items"]
     fx_items = edition["market"]["fx"]["items"]
-    if args.china_gold is None or args.china_silver is None:
-        print("未传入当日水贝报价，按熔断显示 —（禁止沿用旧价）")
+    au = ag = None
+    au_src = ""
+    bdb = fetch_bendibao()
+    if bdb and bdb[0] == args.day[5:]:
+        _, au, ag = bdb
+        au_src = f"深圳本地宝{bdb[0].replace('-', '月')}日"
+        print(f"本地宝 {bdb[0]}：首饰金 {au:.2f} / 白银 {ag:.2f}")
+    elif args.china_gold is not None and args.china_silver is not None:
+        au, ag = args.china_gold, args.china_silver
+        au_src = "手工传入"
+        print(f"国内金银使用手工传入值：Au {au} / Ag {ag}")
+    else:
+        print("本地宝非今日数据且未手工传入，按熔断显示 —（禁止沿用旧价）")
+    if au is None:
         for idx in (1, 2):
             china[idx]["value"] = "—"
             china[idx]["change"] = ""
-            china[idx]["changeDir"] = ""
+            china[idx]["changeDir"] = None
             china[idx]["dir"] = None
         for item in fx_items:
             item["value"] = "—"
             item["dir"] = None
             item["sub"] = "国内暂无可验证报价"
     else:
-        au, ag = args.china_gold, args.china_silver
         # 涨跌幅按昨日 JSON 的真实数字计算（规则见任务指令）
         for idx, price in ((1, au), (2, ag)):
             china[idx]["value"] = f"{price:.2f}"
             china[idx]["label"] = ("水贝首饰金挂牌价 元/克" if idx == 1
-                                   else "水贝白银批发价 元/克")
+                                   else "水贝白银 元/克")
+            china[idx]["sub"] = au_src
         for item, usd_price, cn_price in zip(fx_items, [gold, silver], [au, ag]):
             converted = usd_price * fx / TROY_OZ
-            basis = converted - cn_price
-            item["value"] = f"{'+' if basis >= 0 else '−'}{abs(basis):.2f}"
-            item["dir"] = direction(basis)
+            basis = converted - cn_price  # 国际折算 − 国内；为负表示国内贵
+            # 页面显示取反：+红色=国内贵，−绿色=国内便宜（用户锁定口径）
+            item["value"] = f"{'+' if basis <= 0 else '−'}{abs(basis):.2f}"
+            item["dir"] = "up" if basis <= 0 else "down"
             item["sub"] = f"{converted:.2f} − {cn_price:.2f}"
             print(f"{item['label']}：{item['value']}（{item['sub']}）")
 

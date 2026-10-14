@@ -1,0 +1,475 @@
+{
+  "boundary": [
+    "<strong>中国金银口径说明：</strong>水贝口径为当前唯一口径（首饰金挂牌价/白银批发价）。10 月 9—13 日首饰金、白银均暂无当日可验证新报价，按\"不准不如不做\"铁律直接显示\"—\"、change/changeDir 记为 null，未沿用 10 月 8 日央视财经国庆走访报道的 1061 元/克旧价。汇率牌价日期为 10 月 12 日（欧洲央行参考价）。",
+    "<strong>延续报道标注：</strong>本期 06、07、09、10、12 条分别为昨日俄乌能源停火、胡塞袭击沙特、中欧混动共识、特朗普涉乌言论、亚马逊洽购 Decart 报道的跟进；16 条为昨日诺奖揭晓预告的结果。",
+    "<strong>换算差价仅供对照。</strong>本期国内金银无可验证报价，差价显示为\"—\"。"
+  ],
+  "categories": [
+    {
+      "id": "china",
+      "title": "中国 · 政策与经济",
+      "filterName": "中国",
+      "stories": [
+        {
+          "num": "01",
+          "date": "10月13日",
+          "titleHtml": "财政部、税务总局：自 2027 年 4 月 1 日起<span class=\"mark\">新能源汽车出口退税率 13% 降至 9%</span>，取消电子烟设备等退税",
+          "why": "提前一年半预告的政策退坡，信号意义重于短期影响——新能源车企出口利润将被压缩、电子烟产业链冲击更大，相关板块需关注政策传导。",
+          "sources": [
+            {
+              "name": "新华社（经新浪财经\"今日提示\"）",
+              "url": "https://finance.sina.cn/2026-10-13/detail-iniuzqsr7119155.d.html"
+            },
+            {
+              "name": "新浪财经《操盘必读》10月13日汇总",
+              "url": "https://finance.sina.cn/2026-10-13/detail-iniuzqst8217734.d.html"
+            }
+          ],
+          "caveats": [],
+          "priority": true
+        },
+        {
+          "num": "02",
+          "date": "10月13日",
+          "titleHtml": "中金公司<span class=\"mark\">换股吸收合并东兴证券、信达证券</span>，后两者 10 月 19 日终止上市",
+          "why": "东兴、信达已获上交所终止上市批准、不进入退市整理期，原股东按换股比例转为中金 A 股——券商并购整合再添大案。",
+          "sources": [
+            {
+              "name": "新浪财经《操盘必读》10月13日汇总",
+              "url": "https://finance.sina.cn/2026-10-13/detail-iniuzqst8217734.d.html"
+            }
+          ],
+          "caveats": [],
+          "priority": true
+        },
+        {
+          "num": "03",
+          "date": "10月12日",
+          "titleHtml": "何立峰在人民大会堂<span class=\"mark\">会见苹果执行董事长库克</span>",
+          "why": "何立峰欢迎各国科技企业深化对华合作、共享中国式现代化机遇，库克称对在华长期发展充满信心并愿为美中经贸稳定贡献力量——中美工商界沟通回暖信号。",
+          "sources": [
+            {
+              "name": "新浪财经《操盘必读》10月13日汇总",
+              "url": "https://finance.sina.cn/2026-10-13/detail-iniuzqst8217734.d.html"
+            }
+          ],
+          "caveats": [],
+          "priority": false
+        },
+        {
+          "num": "04",
+          "date": "10月12日",
+          "titleHtml": "乘联分会：9 月乘用车零售<span class=\"mark\">170.2 万辆、同比下降 24%</span>，新能源渗透率仍达 67.1%",
+          "why": "新能源零售 114.1 万辆、同比下降 12%——节前车市同比承压明显，但电动化七成渗透的大势未改。",
+          "sources": [
+            {
+              "name": "财联社（经新浪财经）",
+              "url": "https://finance.sina.cn/2026-10-12/detail-iniuxmtr7177123.d.html"
+            }
+          ],
+          "caveats": [],
+          "priority": false
+        },
+        {
+          "num": "05",
+          "date": "10月13日",
+          "titleHtml": "证监会：主席吴清将出席<span class=\"mark\">10 月 19 日金融街论坛年会</span>并作主题演讲",
+          "why": "市场将关注其对资本市场增量政策的表态——节前证监会刚召开增量政策座谈会，政策托底信号能否兑现看这一讲。",
+          "sources": [
+            {
+              "name": "新浪财经《操盘必读》10月13日汇总",
+              "url": "https://finance.sina.cn/2026-10-13/detail-iniuzqst8217734.d.html"
+            }
+          ],
+          "caveats": [
+            "昨日\"证监会增量政策座谈会\"条目的关联进展"
+          ],
+          "priority": false
+        }
+      ]
+    },
+    {
+      "id": "world",
+      "title": "国际 · 地缘与事件",
+      "filterName": "国际",
+      "stories": [
+        {
+          "num": "06",
+          "date": "10月13日",
+          "titleHtml": "俄副总理诺瓦克：<span class=\"mark\">俄美企业已开始就柴油供应谈判</span>，俄未来或每月供应 350 万吨",
+          "why": "特朗普\"俄乌能源停火/俄向美供油\"言论落地后的首个实质性进展——柴油贸易若重启，将直接冲击全球成品油价格与制裁格局。",
+          "sources": [
+            {
+              "name": "新浪财经《10月13日隔夜要闻》",
+              "url": "https://finance.sina.cn/usstock/mggd/2026-10-13/detail-iniuzqsm5016031.d.html"
+            }
+          ],
+          "caveats": [
+            "昨日\"特朗普宣称俄乌能源停火\"报道的跟进"
+          ],
+          "priority": true
+        },
+        {
+          "num": "07",
+          "date": "10月12—13日",
+          "titleHtml": "胡塞袭击<span class=\"mark\">蔓延至沙特能源设施</span>：沙特阿美天然气设施被命中起火，卡塔尔航空停飞利雅得/达曼",
+          "why": "胡塞宣称过去 24 小时 4 次军事行动——三波袭击利雅得机场致其关闭、另袭达曼机场及沙特阿美两处设施；冲突从机场升级到能源基础设施，油市风险溢价再抬升。",
+          "sources": [
+            {
+              "name": "新华社（经新浪新闻）",
+              "url": "https://news.sina.cn/2026-10-12/detail-iniuxfms0452247.d.html"
+            },
+            {
+              "name": "新浪财经《10月13日隔夜要闻》",
+              "url": "https://finance.sina.cn/usstock/mggd/2026-10-13/detail-iniuzqsm5016031.d.html"
+            }
+          ],
+          "caveats": [
+            "昨日\"胡塞24小时4次袭击沙特\"报道的跟进"
+          ],
+          "priority": true
+        },
+        {
+          "num": "08",
+          "date": "10月12日",
+          "titleHtml": "英国首相称<span class=\"mark\">考虑对沙特提供进一步支援</span>，并指伊朗革命卫队指挥对英空军基地未遂袭击",
+          "why": "伊朗否认策划恐袭、中方指英方指控毫无根据——沙特危机外溢为英伊对峙升级，西方军事介入中东的选项被摆上台面。",
+          "sources": [
+            {
+              "name": "新浪财经《10月13日隔夜要闻》",
+              "url": "https://finance.sina.cn/usstock/mggd/2026-10-13/detail-iniuzqsm5016031.d.html"
+            }
+          ],
+          "caveats": [],
+          "priority": false
+        },
+        {
+          "num": "09",
+          "date": "10月11日",
+          "titleHtml": "中欧混动汽车分歧出初步方案：欧委会官员称<span class=\"mark\">中国混动对欧出口四年内减半</span>",
+          "why": "10 月 9 日磋商第二次例会后达成谅解（\"出口量减半\"未列入硬性条款，为欧委会官员单方口径），具体文本未公布、结果将提交 10 月 15—16 日欧盟峰会——中欧经贸摩擦的阶段性安排仍待落锤。",
+          "sources": [
+            {
+              "name": "界面新闻（经新浪财经）",
+              "url": "https://finance.sina.cn/stock/jdts/2026-10-11/detail-iniuvpap7393475.d.html"
+            }
+          ],
+          "caveats": [
+            "昨日\"中欧16条共识\"报道的跟进；\"四年减半\"为欧委会官员单方口径，具体文本未公布"
+          ],
+          "priority": false
+        },
+        {
+          "num": "10",
+          "date": "10月13日",
+          "titleHtml": "特朗普称泽连斯基和普京<span class=\"mark\">必须共同努力结束战争</span>，为美俄柴油协议辩护称\"做出了正确选择\"",
+          "why": "口径较其\"要求乌克兰换总统\"言论有所回调——施压基辅与安抚并行，俄乌\"能源停火\"的真实成色仍待俄方确认。",
+          "sources": [
+            {
+              "name": "新浪财经《10月13日隔夜要闻》",
+              "url": "https://finance.sina.cn/usstock/mggd/2026-10-13/detail-iniuzqsm5016031.d.html"
+            }
+          ],
+          "caveats": [
+            "昨日\"特朗普称乌克兰应换总统\"报道的跟进"
+          ],
+          "priority": false
+        }
+      ]
+    },
+    {
+      "id": "tech",
+      "title": "科技 · AI 与产业",
+      "filterName": "科技",
+      "stories": [
+        {
+          "num": "11",
+          "date": "10月12日",
+          "titleHtml": "Anthropic：防\"蒸馏\"安全措施使对手提取 Claude 推理数据量<span class=\"mark\">下降 90–99%</span>，点名智谱曾试图蒸馏",
+          "why": "Anthropic 指中国智谱（Z.AI）在开发 GLM-5.3 时曾试图从 Claude 提取推理数据，并警告其带来安全与国家安全风险——大模型\"抄袭式训练\"的攻防战公开化，中美 AI 摩擦加剧。",
+          "sources": [
+            {
+              "name": "路透社",
+              "url": "https://www.reuters.com/jp/economy/JQBQY4MEAZN33AO5NBHZ6WQHQY-2026-10-13/"
+            }
+          ],
+          "caveats": [
+            "智谱方面尚未回应；蒸馏指控为 Anthropic 单方说法"
+          ],
+          "priority": true
+        },
+        {
+          "num": "12",
+          "date": "10月12日",
+          "titleHtml": "亚马逊洽购以色列 AI 创企 Decart <span class=\"mark\">接近落定</span>，估值约 70 亿美元",
+          "why": "WSJ 爆料后多家媒体 10 月 12 日跟进称协议随时可能签署；亚马逊看中其跨芯片软件与实时视频/世界模型能力，补强 AWS 自研 Trainium 生态——巨头为算力生态抢购团队。",
+          "sources": [
+            {
+              "name": "Tech Startups（10月12日跟进）",
+              "url": "https://techstartups.com/2026/10/12/amazon-in-talks-to-acquire-ai-startup-decat-for-7-billion-as-ai-computing-race-heats-up/"
+            }
+          ],
+          "caveats": [
+            "昨日\"亚马逊洽购Decart\"报道的跟进"
+          ],
+          "priority": false
+        },
+        {
+          "num": "13",
+          "date": "10月12日",
+          "titleHtml": "微软公布新一代自研 AI 芯片<span class=\"mark\">Maia 300</span>，股价逆势涨 1.14%、市值重返 4 万亿美元",
+          "why": "市场对其自研算力路线投下信任票——云厂商自研芯片与英伟达的博弈进入新回合。",
+          "sources": [
+            {
+              "name": "新浪财经市场资讯（引微软博客）",
+              "url": "https://finance.sina.cn/stock/jdts/2026-10-13/detail-iniuzqsq0447115.d.html"
+            }
+          ],
+          "caveats": [],
+          "priority": false
+        },
+        {
+          "num": "14",
+          "date": "10月13日",
+          "titleHtml": "华为公布<span class=\"mark\">麒麟 9050 Pro</span>详细架构：9 核 16 线程灵犀 CPU、马良 GPU 性能提升 40%",
+          "why": "麒麟媒体沟通会首次公布架构图（含业界首个 2 亿像素融合 ISP），下一代 2027 芯片测试符合预期；2023 年以来麒麟终端累计发货已过亿——国产移动芯片链条进一步稳固。",
+          "sources": [
+            {
+              "name": "金融界（转IT之家/发布会实录）",
+              "url": "https://m.jrj.com.cn/madapter/finance/2026/10/13140758696732.shtml"
+            }
+          ],
+          "caveats": [],
+          "priority": false
+        },
+        {
+          "num": "15",
+          "date": "10月12日",
+          "titleHtml": "英特尔 CEO 陈立武与博通 CEO 陈福阳警告：AI 扩张最大制约<span class=\"mark\">或不再是芯片或电力，而是资金</span>",
+          "why": "资本成本上升、投资者质疑巨额 AI 投入回报；同日费城半导体指数跌 2.67%、英伟达跌 1.29%、美光跌 3.88%——AI 估值情绪转冷。",
+          "sources": [
+            {
+              "name": "新浪财经市场资讯",
+              "url": "https://finance.sina.cn/stock/jdts/2026-10-13/detail-iniuzqsq0447115.d.html"
+            }
+          ],
+          "caveats": [],
+          "priority": false
+        }
+      ]
+    },
+    {
+      "id": "market",
+      "title": "财经 · 市场与公司",
+      "filterName": "财经",
+      "stories": [
+        {
+          "num": "16",
+          "date": "10月12日",
+          "titleHtml": "2026 年诺贝尔经济学奖授予<span class=\"mark\">罗伯特·霍尔与迈克尔·伍德福德</span>",
+          "why": "表彰其为宏观经济稳定政策奠定微观经济学基础（新凯恩斯主义模型）——该框架支撑了各国央行\"前瞻性指引\"等现代货币政策；奖金 1200 万瑞典克朗。",
+          "sources": [
+            {
+              "name": "路透社",
+              "url": "https://www.reuters.com/world/hall-woodford-win-2026-nobel-economics-prize-2026-10-12/"
+            }
+          ],
+          "caveats": [
+            "昨日\"诺奖将于北京时间17:45揭晓\"条目的结果"
+          ],
+          "priority": true
+        },
+        {
+          "num": "17",
+          "date": "10月12日",
+          "titleHtml": "美股涨跌不一：<span class=\"mark\">道指涨 0.38% 报 51850.55 点</span>，纳指跌 0.44%，油价大涨",
+          "why": "胡塞袭击沙特推高油价（WTI 收 93.74 美元涨 2.06%、布伦特收 106.65 美元涨 1.84%），克利夫兰联储主席哈马克鹰派表态强化加息预期；本周财报季（摩根大通、高盛先披露）叠加周三 CPI、周四 PPI，是验证 AI 资本开支叙事的关键一周。",
+          "sources": [
+            {
+              "name": "新浪财经美股",
+              "url": "https://finance.sina.cn/usstock/mggd/2026-10-13/detail-iniuzkkv8197690.d.html"
+            }
+          ],
+          "caveats": [],
+          "priority": false
+        },
+        {
+          "num": "18",
+          "date": "10月13日",
+          "titleHtml": "A 股三大指数震荡收跌：<span class=\"mark\">沪指跌 0.19% 报 3889.50 点</span>，光通信业绩预增爆发",
+          "why": "深成指跌 0.93%、创业板指跌 1.11%，算力硬件（CPO/PCB）午后反弹；联讯仪器前三季净利预增 1866%–2073%，印证算力链景气仍在兑现。",
+          "sources": [
+            {
+              "name": "东方财富",
+              "url": "https://finance.eastmoney.com/a/202510133532465368.html"
+            }
+          ],
+          "caveats": [
+            "新浪城市频道另有沪指3800.86涨0.10%的矛盾数字，疑为页面数据错乱，采用东方财富口径"
+          ],
+          "priority": false
+        },
+        {
+          "num": "19",
+          "date": "10月13日",
+          "titleHtml": "韩国 KOSPI <span class=\"mark\">收跌 5.47% 报 6035.34 点</span>创 8 月以来新低，SK 海力士暴跌超 10%",
+          "why": "AI 融资疑虑与外资撤离双重抛售，三星、SK 海力士合计占韩股过半权重成脆弱点；日经 225 同日收跌 1.82%——亚洲科技股遭遇估值重估。",
+          "sources": [
+            {
+              "name": "新浪财经股市直击",
+              "url": "http://city.sina.cn/finance/2026-10-13/detail-inivafqp8871989.d.html"
+            }
+          ],
+          "caveats": [],
+          "priority": false
+        },
+        {
+          "num": "20",
+          "date": "10月12日",
+          "titleHtml": "现货黄金<span class=\"mark\">冲高回落收报 4171.68 美元</span>跌 0.56%，美元指数创 2025 年 4 月以来新高",
+          "why": "盘中触及 4217.17 美元后转跌；美元指数 102.60、美债收益率维持高位、哈马克鹰派发言压制贵金属，但中东冲突升级与本周 CPI 前的不确定性仍在下方支撑。",
+          "sources": [
+            {
+              "name": "新华财经（经新浪财经）",
+              "url": "https://finance.sina.cn/2026-10-13/detail-iniuzqsq0459953.d.html"
+            }
+          ],
+          "caveats": [],
+          "priority": false
+        }
+      ]
+    }
+  ],
+  "date": "2026-10-14",
+  "dek": "诺奖花落霍尔与伍德福德、俄美柴油谈判落地实质进展、胡塞袭击蔓延至沙特能源设施，A股震荡收跌、韩国股市暴跌5.47%——20条信息差，浓缩周二。",
+  "editionLine": "2026.10.14 · 周三 EDITION",
+  "footer": {
+    "left": "简报检索窗口：2026年10月11—13日 · 上海时区",
+    "right": "资料截至：2026年10月13日 09:45 · 点击来源可查看原文"
+  },
+  "headlineHtml": "今天真正值得知道的<br>20 件事",
+  "insights": [
+    {
+      "num": "01 / 诺奖",
+      "title": "给\"沟通即政策工具\"的时代盖了个学术认证章",
+      "text": "霍尔与伍德福德获奖，表彰的是\"前瞻性决策者+政策沟通影响经济\"的新凯恩斯主义框架——正是各国央行前瞻性指引的理论地基；获奖恰逢哈马克鹰派表态与CPI前夜，学术与现实在同一天互相注解。"
+    },
+    {
+      "num": "02 / 地缘",
+      "title": "\"口头降温\"与\"实体升级\"并行的油市",
+      "text": "俄美柴油谈判是\"口头降温\"落地的第一块实体砖，胡塞袭击沙特能源设施却是\"实体升级\"的新台阶；两者并行意味着短期油价波动放大，任何一方的证伪都会快速反转——方向判断让位于波动管理。"
+    },
+    {
+      "num": "03 / AI 资本",
+      "title": "AI竞赛进入护城河攻防战与资本纪律考验期",
+      "text": "Anthropic 点名智谱\"蒸馏\"、英特尔/博通 CEO 警告\"钱荒\"、微软 Maia 300 获市场投票——模型护城河、资金约束、自研算力三线同时收紧；KOSPI 暴跌 5.47%、SK 海力士跌超 10% 是估值端最直接的投票。"
+    }
+  ],
+  "label": "2026年10月14日",
+  "market": {
+    "china": {
+      "items": [
+        {
+          "change": "0.00%",
+          "changeDir": "",
+          "dir": null,
+          "label": "兰州 92 号汽油 元/升",
+          "sub": "发改委9月24日24时调价后沿用 · 下窗口10月15日24时（机构测算预计下调约0.18元/升）",
+          "value": "8.61"
+        },
+        {
+          "label": "水贝首饰金挂牌价 元/克",
+          "value": "—",
+          "change": null,
+          "changeDir": null,
+          "dir": null,
+          "sub": "暂无10月14日可验证水贝报价（未沿用旧价）"
+        },
+        {
+          "label": "水贝白银批发价 元/克",
+          "value": "—",
+          "change": null,
+          "changeDir": null,
+          "dir": null,
+          "sub": "暂无10月14日可验证水贝报价（未沿用旧价）"
+        }
+      ],
+      "noteHtml": "金银为独立人民币报价，非汇率换算 · 报价注明日期与口径 · 无当日可验证报价时显示—，不沿用旧价",
+      "title": "中国市场"
+    },
+    "fx": {
+      "formula": "国际价 × 6.694 ÷ 31.1035 − 中国报价",
+      "formulaLabel": "换算口径",
+      "formulaNote": "显示口径：+红色表示国内比国际贵，−绿色表示国内比国际便宜，缺失显示—；国际与国内报价各自保持原始口径",
+      "items": [
+        {
+          "label": "黄金差价 元/克",
+          "value": "—",
+          "dir": null,
+          "sub": "国内暂无可验证报价"
+        },
+        {
+          "label": "白银差价 元/克",
+          "value": "—",
+          "dir": null,
+          "sub": "国内暂无可验证报价"
+        }
+      ],
+      "noteHtml": "1 美元 = 6.694 元人民币（欧洲央行参考价，牌价日期 10月13日） · 仅用于下方差价对照",
+      "title": "当日汇率"
+    },
+    "intl": {
+      "items": [
+        {
+          "change": "+3.83%",
+          "changeDir": "up",
+          "dir": "up",
+          "unit": "WTI 美元/桶",
+          "value": "94.99"
+        },
+        {
+          "change": "+0.57%",
+          "changeDir": "up",
+          "dir": "up",
+          "unit": "现货黄金 美元/盎司",
+          "value": "4,180.50"
+        },
+        {
+          "change": "+0.35%",
+          "changeDir": "up",
+          "dir": "up",
+          "unit": "现货白银 美元/盎司",
+          "value": "59.27"
+        }
+      ],
+      "note": "原始行情报价",
+      "title": "国际市场"
+    }
+  },
+  "stamp": {
+    "time": "上海时间 09:45",
+    "note": "周二早间快照 · 国际行情为盘中价（期货夜盘）"
+  },
+  "watch": [
+    {
+      "date": "10月13日",
+      "event": "苹果\"Welcome home\"智能家居专场发布会（北京时间 21:00）"
+    },
+    {
+      "date": "10月14日",
+      "event": "美国 9 月 CPI"
+    },
+    {
+      "date": "10月15日",
+      "event": "国内成品油调价窗口（10月15日24时，机构测算预计下调约0.18元/升）"
+    },
+    {
+      "date": "10月15—16日",
+      "event": "欧盟峰会（中欧混动方案结果提交）"
+    },
+    {
+      "date": "10月19日",
+      "event": "吴清金融街论坛年会主题演讲；东兴证券、信达证券终止上市"
+    }
+  ]
+}

@@ -113,6 +113,12 @@ def direction(c: float) -> str:
     return "up" if c >= 0 else "down"
 
 
+def yesterday(day: str) -> str:
+    from datetime import date, timedelta
+    y, m, d = (int(x) for x in day.split("-"))
+    return (date(y, m, d) - timedelta(days=1)).isoformat()
+
+
 def main() -> None:
     ap = argparse.ArgumentParser(description="抓取国际行情并更新当日 JSON")
     ap.add_argument("day", help="日期，格式 YYYY-MM-DD（需已存在 data/editions/<日期>.json）")
@@ -133,13 +139,31 @@ def main() -> None:
     print(f"汇率 USD/CNY = {fx:.4f}（牌价日期 {fx_date}）")
     print(f"WTI = {wti:.2f}（{fmt_chg(wti_chg)}）  黄金 = {gold:.2f}（{fmt_chg(gold_chg)}）  白银 = {silver:.2f}（{fmt_chg(silver_chg)}）")
 
-    # ---- 2. 填国际区 ----
+    # ---- 2. 填国际区（涨跌幅=今值 vs 昨日 JSON 同项值；昨日无数字则 change 置空） ----
     intl = edition["market"]["intl"]["items"]
-    for item, (price, chg) in zip(intl, [(wti, wti_chg), (gold, gold_chg), (silver, silver_chg)]):
+    ypath = ROOT / "data" / "editions" / f"{yesterday(args.day)}.json"
+    yintl = None
+    if ypath.exists():
+        try:
+            yintl = json.loads(ypath.read_text(encoding="utf-8"))["market"]["intl"]["items"]
+        except Exception:
+            yintl = None
+    for k, (item, (price, _)) in enumerate(zip(intl, [(wti, wti_chg), (gold, gold_chg), (silver, silver_chg)])):
         item["value"] = fmt_price(price)
-        item["dir"] = direction(chg)
-        item["change"] = fmt_chg(chg)
-        item["changeDir"] = direction(chg)
+        chg = None
+        if yintl and k < len(yintl):
+            try:
+                yv = float(str(yintl[k]["value"]).replace(",", ""))
+                chg = (price - yv) / yv * 100.0
+            except (ValueError, TypeError, KeyError):
+                chg = None
+        if chg is None:
+            item["change"] = ""
+            item["changeDir"] = None
+        else:
+            item["change"] = fmt_chg(chg)
+            item["changeDir"] = direction(chg)
+        item["dir"] = direction(chg) if chg is not None else None
 
     # ---- 3. 填汇率区 ----
     fx_block = edition["market"]["fx"]
